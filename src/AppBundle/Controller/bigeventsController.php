@@ -40,7 +40,7 @@ class bigeventsController extends Controller
     	$event = new Event;
 
     	$form = $this->createFormBuilder($event)
-    	->add('name', TextType::class, array('attr' => array('class'=> 'form-control', 'style'=>'margin-bottom:15px')))
+    	  ->add('name', TextType::class, array('attr' => array('class'=> 'form-control', 'style'=>'margin-bottom:15px')))
         ->add('capacity', TextType::class, array('attr' => array('class'=> 'form-control', 'style'=>'margin-bottom:15px')))
         ->add('description', TextareaType::class, array('attr' => array('class'=> 'form-control', 'style'=>'margin-bottom:15px')))
         ->add('image', FileType::class, array('attr' => array('class'=> 'form-control-file', 'style'=>'margin-bottom:15px')))
@@ -49,7 +49,7 @@ class bigeventsController extends Controller
    	    ->add('contact_phone', TextType::class, array('attr' => array('class'=> 'form-control', 'style'=>'margin-bottom:15px')))
    	    ->add('address', TextType::class, array('attr' => array('class'=> 'form-control', 'style'=>'margin-bottom:15px')))
    	    ->add('URL', TextType::class, array('attr' => array('class'=> 'form-control', 'style'=>'margin-bottom:15px')))
-   	    ->add('type', ChoiceType::class, array('choices'=>array('Sport'=>'Sport', 'Music'=>'Music', 'Movie'=>'Movie','Theater'=>'Theater','Other'=>'Other'),'attr' => array('class'=> 'form-control', 'style'=>'margin-botton:15px')))
+   	    ->add('type', ChoiceType::class, array('choices'=>array('Sport'=>'Sport', 'Music'=>'Music', 'Movie'=>'Movie','Theater'=>'Theater', 'Dance'=>'Dance' ,'Other'=>'Other'),'attr' => array('class'=> 'form-control', 'style'=>'margin-botton:15px')))
         ->add('save', SubmitType::class, array('label'=> 'Create Event', 'attr' => array('class'=> 'btn-primary', 'style'=>'margin-bottom:15px')))
         ->getForm();
        $form->handleRequest($request);
@@ -58,16 +58,16 @@ class bigeventsController extends Controller
 
        if($form->isSubmitted() && $form->isValid()){
           
-           $name        	= $form['name']->getData();
-           $date 	    	= $form['date']->getData();
-           $description 	= $form['description']->getData();
-           $image 			= $form['image']->getData();
-           $capacity 		= $form['capacity']->getData();
-           $contact 		= $form['contact']->getData();
+           $name        	  = $form['name']->getData();
+           $date 	    	    = $form['date']->getData();
+           $description 	  = $form['description']->getData();
+           $image 			    = $form['image']->getData();
+           $capacity 		    = $form['capacity']->getData();
+           $contact 		    = $form['contact']->getData();
            $contact_phone   = $form['contact_phone']->getData();
-           $address 		= $form['address']->getData();
-           $URL 			= $form['URL']->getData();
-           $type 			= $form['type']->getData();
+           $address 		    = $form['address']->getData();
+           $URL 			      = $form['URL']->getData();
+           $type 			      = $form['type']->getData();
 
 
           
@@ -120,7 +120,7 @@ class bigeventsController extends Controller
 
        
        $form = $this->createFormBuilder($event)
-    	->add('name', TextType::class, array('attr' => array('class'=> 'form-control', 'style'=>'margin-bottom:15px')))
+    	  ->add('name', TextType::class, array('attr' => array('class'=> 'form-control', 'style'=>'margin-bottom:15px')))
         ->add('capacity', TextType::class, array('attr' => array('class'=> 'form-control', 'style'=>'margin-bottom:15px')))
         ->add('description', TextareaType::class, array('attr' => array('class'=> 'form-control', 'style'=>'margin-bottom:15px')))
         ->add('image', TextType::class, array('attr' => array('class'=> 'form-control', 'style'=>'margin-bottom:15px')))
@@ -129,7 +129,7 @@ class bigeventsController extends Controller
    	    ->add('contact_phone', TextType::class, array('attr' => array('class'=> 'form-control', 'style'=>'margin-bottom:15px')))
    	    ->add('address', TextType::class, array('attr' => array('class'=> 'form-control', 'style'=>'margin-bottom:15px')))
    	    ->add('URL', TextType::class, array('attr' => array('class'=> 'form-control', 'style'=>'margin-bottom:15px')))
-   	    ->add('type', ChoiceType::class, array('choices'=>array('Sport'=>'Sport', 'Music'=>'Music', 'Movie'=>'Movie','Theater'=>'Theater','Other'=>'Other'),'attr' => array('class'=> 'form-control', 'style'=>'margin-botton:15px')))
+   	    ->add('type', ChoiceType::class, array('choices'=>array('Sport'=>'Sport', 'Music'=>'Music', 'Movie'=>'Movie','Theater'=>'Theater','Dance'=>'Dance','Other'=>'Other'),'attr' => array('class'=> 'form-control', 'style'=>'margin-botton:15px')))
         ->add('save', SubmitType::class, array('label'=> 'edit Event', 'attr' => array('class'=> 'btn-primary', 'style'=>'margin-bottom:15px')))
         ->getForm();
        $form->handleRequest($request);
@@ -139,18 +139,18 @@ class bigeventsController extends Controller
 
        if($form->isSubmitted() && $form->isValid()){
            
-           $name        	= $form['name']->getData();
-           $date 	    	= $form['date']->getData();
-           $description 	= $form['description']->getData();
-           $image 			= $form['image']->getData();
-           $capacity 		= $form['capacity']->getData();
-           $contact 		= $form['contact']->getData();
+           $name        	  = $form['name']->getData();
+           $date 	    	    = $form['date']->getData();
+           $description 	  = $form['description']->getData();
+           $image 			    = $form['image']->getData();
+           $capacity 		    = $form['capacity']->getData();
+           $contact 		    = $form['contact']->getData();
            $contact_phone   = $form['contact_phone']->getData();
-           $address 		= $form['address']->getData();
-           $URL 			= $form['URL']->getData();
-           $type 			= $form['type']->getData();
-           $em          = $this->getDoctrine()->getManager();
-           $event       = $em->getRepository('AppBundle:event')->find($id);
+           $address 		    = $form['address']->getData();
+           $URL 			      = $form['URL']->getData();
+           $type 			      = $form['type']->getData();
+           $em              = $this->getDoctrine()->getManager();
+           $event           = $em->getRepository('AppBundle:event')->find($id);
 
            
            $event->setName($name);
@@ -185,7 +185,7 @@ class bigeventsController extends Controller
            $em = $this->getDoctrine()->getManager();
            $event = $em->getRepository('AppBundle:Event')->find($id);
            $em->remove($event);
-            $em->flush();
+           $em->flush();
            $this->addFlash(
                    'notice',
                    'Event Removed'
